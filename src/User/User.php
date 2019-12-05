@@ -246,7 +246,7 @@ class User extends AbstractModel
      */
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password'] = $value ? static::$hasher->make($value) : '';
+        $this->attributes['password'] = $value; //? static::$hasher->make($value) : '';
     }
 
     /**
