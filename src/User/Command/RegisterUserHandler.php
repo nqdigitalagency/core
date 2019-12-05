@@ -96,6 +96,10 @@ class RegisterUserHandler
         if (isset($token)) {
             $this->applyToken($user, $token);
         }
+        
+        if (Arr::get($data, 'attributes.avatarUrl')) {
+            $user->changeAvatarPath(Arr::get($data, 'attributes.avatarUrl'));
+        }
 
         if ($actor->isAdmin() && Arr::get($data, 'attributes.isEmailConfirmed')) {
             $user->activate();
