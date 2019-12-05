@@ -87,6 +87,10 @@ class EditUserHandler
             }
         }
 
+        if (! empty($attributes['avatarUrl'])) {
+            $user->changeAvatarPath($attributes['avatarUrl']);
+        }
+        
         if ($actor->isAdmin() && ! empty($attributes['isEmailConfirmed'])) {
             $user->activate();
         }
